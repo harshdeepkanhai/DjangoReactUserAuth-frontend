@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
   useHistory
 } from 'react-router-dom';
 import SignUp from './components/SignUp';
@@ -53,7 +53,7 @@ function App(props) {
         .then(response => {
           if (response.data.username !== undefined) {
             setValues({ loggedIn: true, currentUser: response.data.username });
-          } else if (response.data.detail == 'Signature has expired.') {
+          } else if (response.data.detail === 'Signature has expired.') {
             localStorage.removeItem('token');
             setValues({ loggedIn: false, currentUser: '' });
             alert('Log In Expired. Log In Again');
@@ -74,7 +74,7 @@ function App(props) {
             >
               JWT
             </Typography>
-            {values.loggedIn == false || localStorage.token == undefined ? (
+            {values.loggedIn === false || localStorage.token === undefined ? (
               <Button color='inherit' onClick={() => history.push('/sign-in')}>
                 Login
               </Button>

@@ -64,7 +64,7 @@ export default function SignUp() {
 
   const handleSubmitForm = () => {
     const { username, firstName, lastName, password } = values;
-    if (username == '' || firstName == '' || lastName == '' || password == '') {
+    if (username === '' || firstName === '' || lastName === '' || password === '') {
       alert('One or More field empty. Please fill them and try again.');
     } else {
       axios
@@ -77,10 +77,10 @@ export default function SignUp() {
           }
         })
         .then(response => {
-          if (response.data.response == 'success') {
+          if (response.data.response === 'success') {
             history.push('/sign-in');
             alert(response.data.message);
-          } else if (response.data.response == 'error') {
+          } else if (response.data.response === 'error') {
             alert(JSON.stringify(response.data.message));
           }
         })

@@ -62,7 +62,7 @@ export default function SignIn() {
 
   const handleSubmitForm = () => {
     const { username, password } = values;
-    if (username == '' || password == '') {
+    if (username === '' || password === '') {
       alert('One or More field empty. Please fill them and try again.');
     } else {
       axios
@@ -72,7 +72,7 @@ export default function SignIn() {
         })
         .then(response => {
           console.log(response.data);
-          if (response.data.token != undefined) {
+          if (response.data.token !== undefined) {
             localStorage.setItem('token', response.data.token);
             history.push('/');
           } else {

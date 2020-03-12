@@ -17,7 +17,7 @@ function Home() {
         .then(response => {
           if (response.data.username !== undefined) {
             setValues({ loggedIn: true, currentUser: response.data.username });
-          } else if (response.data.detail == 'Signature has expired.') {
+          } else if (response.data.detail === 'Signature has expired.') {
             localStorage.removeItem('token');
             setValues({ loggedIn: false, currentUser: '' });
             alert('Log In Expired. Log In Again');
@@ -28,7 +28,7 @@ function Home() {
   });
   return (
     <div>
-      {values.loggedIn == true && localStorage.token != undefined
+      {values.loggedIn === true && localStorage.token !== undefined
         ? `${values.currentUser} is logged in`
         : 'Please Log In.'}
     </div>
